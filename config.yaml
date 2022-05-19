@@ -1,39 +1,74 @@
 settings:
-  title: 'Status Page'
+  title: 'Chjina Status Page'
   url: 'https://status-page.eidam.dev' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
+  daysInHistogram: 120 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
-  allmonitorsOperational: 'All Systems Operational'
-  notAllmonitorsOperational: 'Not All Systems Operational'
-  monitorLabelOperational: 'Operational'
-  monitorLabelNotOperational: 'Not Operational'
-  monitorLabelNoData: 'No data'
-  dayInHistogramNoData: 'No data'
-  dayInHistogramOperational: 'All good'
+  allmonitorsOperational: '检测运行状态'
+  notAllmonitorsOperational: '部分检测运行状态'
+  monitorLabelOperational: '畅通'
+  monitorLabelNotOperational: '阻塞'
+  monitorLabelNoData: '未响应'
+  dayInHistogramNoData: '未响应'
+  dayInHistogramOperational: '畅通'
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
-    name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 200 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
-
-  - id: www-cloudflare-com
-    name: www.cloudflare.com
-    description: 'Built for anything connected to the Internet.'
-    url: 'https://www.cloudflare.com'
+  - id: www.chjina.com
+    name: 博客主页
+    description: '博客主页'
+    url: 'https://www.chjina.com'
     method: GET
     expectStatus: 200
-    linkable: true # allows the title to be a link, default=true
-
-  - id: blog-cloudflare-com
-    name: The Cloudflare Blog
-    url: 'https://blog.cloudflare.com/'
+    followRedirect: true # should fetch follow redirects, default=false
+  
+  - id: gravatar.chjina.com
+    name: Gravatar头像
+    description: 'Gravatar头像服务'
+    url: 'https://gravatar.chjina.com'
     method: GET
     expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false
+    
+  - id: home.chjina.com
+    name: 导航主页
+    description: '导航主页'
+    url: 'https://home.chjina.com'
+    method: GET
+    expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false
+    
+  - id: drive.chjina.com
+    name: 共享盘服务
+    description: '共享盘服务'
+    url: 'https://drive.chjina.com'
+    method: GET
+    expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false
+    
+  - id: rsshub.chjina.com
+    name: RssHub服务
+    description: 'RssHub服务'
+    url: 'https://rsshub.chjina.com'
+    method: GET
+    expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false
+    
+  - id: music.chjina.com
+    name: Muisc服务
+    description: 'Muisc服务'
+    url: 'https://music.chjina.com'
+    method: GET
+    expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false    
+    
+  - id: AriaNg.chjina.com
+    name: Aria2下载
+    description: 'AriaNg下载'
+    url: 'https://an.chjina.com'
+    method: GET
+    expectStatus: 200
+    followRedirect: true # should fetch follow redirects, default=false
+   
+
